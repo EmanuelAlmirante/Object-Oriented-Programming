@@ -28,7 +28,8 @@ This repository hosts the project of the course Object-Oriented Programming.
     - [View cut buffer](https://github.com/EmanuelAlmirante/Object-Oriented-Programming#view-cut-buffer)
   - [Query Menu](https://github.com/EmanuelAlmirante/Object-Oriented-Programming#query-menu)
 - [Initialization by Text Data File](https://github.com/EmanuelAlmirante/Object-Oriented-Programming#initialization-by-text-data-file) 
-- [Compilation](https://github.com/EmanuelAlmirante/Object-Oriented-Programming#compilation)
+- [How To Compile](https://github.com/EmanuelAlmirante/Object-Oriented-Programming/blob/master/README.md#how-to-compile)
+- [How To Test](https://github.com/EmanuelAlmirante/Object-Oriented-Programming/blob/master/README.md#how-to-test)
 
 ## Objectives
 

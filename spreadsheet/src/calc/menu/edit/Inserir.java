@@ -19,8 +19,8 @@ public class Inserir extends Command<AppCalc> {
 	/**
 	 * Constructor.
 	 * 
-	 * @param account
-	 *            Object Folhacalculo over which the command will be executed.
+	 * @param 
+	 *            
 	 */
 	public Inserir(AppCalc app) {
 		super(MenuEntry.INSERT, app);

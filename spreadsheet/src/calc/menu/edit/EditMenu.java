@@ -12,10 +12,10 @@ import calc.core.*;
 public class EditMenu extends Menu {
 
 	/**
-	 * Constructor for class BankMenu
+	 * Constructor for class EditMenu
 	 *
-	 * @param b
-	 *            the bank this account belongs to.
+	 * @param 
+	 *            
 	 */
 	public EditMenu(AppCalc app) {
 		super(MenuEntry.TITLE, new Command<?>[] {

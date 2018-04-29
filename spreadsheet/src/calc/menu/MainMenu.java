@@ -17,10 +17,9 @@ import calc.core.*;
 public class MainMenu extends Menu {
 
 	/**
-	 * Constructor for class BankMenu
-	 *
-	 * @param b
-	 *            the bank this account belongs to.
+	 * Constructor for class MainMenu
+	 * 
+	 * @param
 	 */
 	public MainMenu(AppCalc app) {
 		super(MenuEntry.TITLE, new Command<?>[] {

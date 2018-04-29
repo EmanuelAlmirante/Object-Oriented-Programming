@@ -1,2 +1,3 @@
-# Object-Oriented-Programming
-Project of the course Object-Oriented Programming.
+# Object-Oriented Programming
+
+This repository hosts the project of the course Object-Oriented Programming.

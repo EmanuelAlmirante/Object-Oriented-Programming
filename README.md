@@ -89,13 +89,36 @@ The exceptions used in the interaction, except if indicated, are subclasses of _
 
 ### Cell Addressing
 
+For the request of a range, it is used the message _calc.textui.edit.Message.addressRequest()_. The exception _calc.
+textui.edit.InvalidCellRange_ is thrown if the addresses given are invalid.
+
 ### Main Menu
+
+The actions of the menu, listed in _calc.textui.main.MenuEntry_, allow the manipulation of files, editing cells, do searches. The methods for the messages of dialog are defined in _calc.textui.main.Message_. 
+
+Initially, the application has no sheet. In this situation, only the options **Criar (create)** and **Abrir (open)** are shown, because the remaining functions require a sheet. The irrelevant options should be omitted in this situation.  
 
 #### File Manipulation
 
+The state of the application can be saved in files, for a posterior recovery (serialization Java: _java.io.Serializable_). In the manipulation of files, the associated exceptions should be treated. The funcionality of each operation is the followin:
+
+  **Criar (create) -** Allows to create an empty sheet: the dimensions of the new sheet are required, using the messages _linesRequest()_ and _columnsRequest()_. This sheet is not associated to any file (it is anonymous).
+  
+  **Abrir (open) -** Loads a new sheet from a previously saved file. The name of the file (_openFile()_) is required: case it does not exist, the message _fileNotFound()_ is shown.
+  
+  **Guardar (save) -** Saves the sheet in the file associated. If the sheet is anonymous, it is asked for the name of the file that we want to give to it. This interaction is performed through the method _newSaveAs()_. No action is performed if there are no changes since the last save.
+  
+  **Guardar como... -** This options allows to associate a (new) file to the sheet, saving in that file the state of the sheet. This interaction uses the method _saveAs()_. It is ignored the actual association to a file even if there are changes.
+
 #### Other Options
 
+Besides the operations of manipulation of the files and the basic options of visualization, there are still in the main menu the options of **Menu de Edição (edit menu)** and **Menu de Consultas (search menu)**. This options are only available when a valid active sheet exists.
+
 ### Edit Menu
+
+The edit menu allows to view and change the content of the cells of the active sheet. The complete list is the following: **Visualizar (visualize)**, **Inserir (insert)**, **Apagar (delete)**, **Copiar (copy)**, **Cortar (cut)**, **Colar (paste)** and **Visualizar _cut buffer_ (view cut buffer)**. The below sections describe these options.
+
+The options of this menu are defined in the class _calc.textui.edit.MenuEntry_. All methods corresponding to the dialog messages for the actions of the menu are defined in the class _calc.textui.edit.Message_.
 
 #### Visualize
 
@@ -111,7 +134,7 @@ The exceptions used in the interaction, except if indicated, are subclasses of _
 
 #### View cut buffer
 
-### Query Menu
+### Search Menu
 
 ## Initialization by Text Data File
 

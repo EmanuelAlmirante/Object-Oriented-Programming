@@ -43,10 +43,10 @@ Any help or recommendation is welcome, so feel free to change the code.
 
 The number of lines and columns of the sheet is fixed. The addresses (positions in the sheet: line and column) begin in 1.
 
-A cell is defined based on it's position in the sheet: _CELL ::= LINE;COLUMN_.
+A cell is defined based on it's position in the sheet: _CELL ::= LINE;COLUMN_. <br />
   **Example:** 1;2 (line 1, column 2), or 23;4 (line 23, column 4).
   
-An interval (closed) is defined between two cells of the same line or column: _INTERVAL ::= CELL:CELL_.
+An interval (closed) is defined between two cells of the same line or column: _INTERVAL ::= CELL:CELL_. <br />
   **Example:** 1;2:1;20 (line 1, between the columns 2 and 20), or 23;4:57;4 (column 4, between the lines 23 and 57).
   
 We use the term "range" to specificy indiscriminately an unique cell or a interval of cells.

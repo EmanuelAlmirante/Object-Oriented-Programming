@@ -122,20 +122,67 @@ The options of this menu are defined in the class _calc.textui.edit.MenuEntry_. 
 
 #### Visualize
 
+Allows to visualize the intended range, according with the indications of the tables. The first table describes the presentation of a cell for different situations. The first line is for empty cells, the second for cells with a literal and the third for cell that refer formulas or references. The second table describes the presentation of the two types of intervals.
+
+If the content is not a literal, it should be presented it's value and expression (references or formulas). It should not be presented any content for cells that are empty (first example of the below table).
+
+| **Cell: Contents**  |     
+| ------------- |           
+| _line;column &#124;_ |           
+| _line;column &#124; literal_  |           
+| _line;column &#124; value=expression_  |
+
+| **Vertical Interval** | **Horizontal Interval** |
+| ------------- | ------------- |
+| _line1;column &#124; content_  | _line;column1 &#124; content_ |
+| _line2;column &#124; content_  | _line;column1 &#124; content_ |
+| _line3;column &#124; content_  | _line;column1 &#124; content_ |
+
 #### Insert
+
+It is specified the range. It is specified the content to insert, through the message _contentsRequest()_. The content is inserted in all the cells of the range. For simplicity, names of non-existent functions are not inserted. 
 
 #### Copy
 
+It is specified the range whose content should be copied to the cut buffer. The contents are copied independently of the sheet (i.e., changes to the originals are not propagated to the cut buffer).
+
 #### Delete
+
+It is specified the range whose content should be deleted.
 
 #### Cut
 
+This action corresponds to do a **Copy** and a **Delete** in sequence.
+
 #### Paste
+
+Inserts the content from the cut buffer in the specified range. If the cut buffer is empty no action is performed.
+
+If the range is a single cell, all the content from the cut buffer should be inserted from the specified cell until it is reached the limit of the spreadsheet. Otherwise, if the dimension of the cut buffer is different from the one from the destination range, no value is inserted.
 
 #### View cut buffer
 
+Allows to visualize the content of the cut buffer. The format of the presentation is the one described in **Visualize** (the first cell of the cut buffer always starts in 1;1).
+
 ### Search Menu
 
+Allows to do searches over the cells of the active sheet, producing lists of cells. The resulting cells are presented by the order in which they appear in the table in the section **Visualize**. The entries of the menu are defined in _calc.textui.search.MenuEntry_. The messages are defined in _calc.textui.search.Message_.
+
+| **Entry of the menu**  | **Action** |     
+| ------------- | ------------- |          
+| Search Value | Asks for the value to search (message _searchValue()_) and presents the results. |          
+| Search Function  | Asks for the name of the function to search (message _searchFunction()_) and presents the results. |
+
+The term of the search should be compared with the value evaluated in each cell. This way, considering the initial expressions of the cells indicated below, a search for the value _5_ would find the cells _1;3_ and _2;1_:
+  _1;1 &#124; 4_
+  _1;2 &#124; 1_
+  _1;3 &#124; 5_
+  _2;1 &#124; 5=ADD(1;1,1;2)_
+  _2;2 &#124;_
+  _2;3 &#124;_
+  
+Everytime a search is performed and no entity can satisfy the conditions associated with the request, nothing should be presented.
+  
 ## Initialization by Text Data File
 
 ## How To Compile

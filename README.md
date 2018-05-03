@@ -53,9 +53,23 @@ We use the term "range" to specificy indiscriminately an unique cell or a interv
 
 ### Content: Literals, References, Functions
 
-### Cell Operations
+By omission, the cells are empty (without content). The admissible contents are: literals (integers), references, functions. References are indicated with the symbol "=" followed by the address of the referenced cell. The functions are indicated with the symbol "=", the name of the function and the list (possible empty) of arguments (separated by commas). The following functions are pre-defined:
+
+  1. Binary functions, whose arguments can be references to cells or literal values: **ADD (addition)**, **SUB (subtraction)**, **MUL (multiplication)**, **DIV (division)**. <br />
+    **Example:** ADD (2;3,1), SUB (6;2,22;1), MUL (1,2), DIV (1,5;2).
+   
+   2. Functions applied to an interval of cells: **AVG (average with integer division)**, **PRD (piatorio)**. <br />
+    **Example:** AVG (1;2:1;19), PRD (2;33:5;33).
+    
+It is considered that there are no circular dependencies (direct or indirect), between functions and cells referenced by their arguments. The value to show for invalid references or functions with invalid arguments (reference empty cells), is _#VALUE_.
+
+### Operations On Cells
+
+It is possible to insert, delete and show contents. It is also possible to copy content between cells.
 
 ### Searches
+
+It is possible to search the contents of the cells under different aspects: (i) values resulting from evaluation; (ii) names of functions.
 
 ## Flexibility and Efficiency Considerations
 

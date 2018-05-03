@@ -73,7 +73,19 @@ It is possible to search the contents of the cells under different aspects: (i) 
 
 ## Flexibility and Efficiency Considerations
 
+It should be possible to extend or change functionalities with minimal impact in the produced code: in particular, it should be simples to define new functions and new searches over the cells. The objective is to increase the flexibility of the application relatively to the support of new functions.
+
+It should be possible to represent the structure of a spreadsheet using different approaches without impacting the remaning code of the application. The objective of this requisite is to allow the optimization of the occupied memory space to save the content of a spreadsheet. For example, in the case of spreadsheets of small dimensions you can have a structure that saves all cells regardeless of them being empty or not. This representation is inefficient for situations of spreadsheets of large dimensions and in which there are a great number of empty cells. The solution to develop does not need to materialize all situations (it just needs to materialize the first case) but should be sufficiently flexible to allow new representations.
+
+A function depends of cells whose content can be changed at any moment. As a way to reduce the cost of execution of the application everytime a cell is changed, the number of times that which formula is calculated should be minimized. This requisit should only be considered after everything else is implemented. 
+
 ## User Interaction
+
+Described below is the maximum functionality of the interface with the user. In general, the commands ask all the information before validating them (except where indicated). All the menus have the option _"Sair"_ (closes the menu).
+
+The operations of reading and writing of data related with the interaction with the user must be performed through the objects _pt.utl.ist.po.ui.Form_ and _pt.utl.ist.po.ui.Display_, using the messages described (all the messages are produced through the calls to methods). A complete list of available classes can be obtained in the libraries pouilib and calc (support material). The interaction with the user, through operations of reading  or writing, should only be performed in the code related with the interface with the user (and never in the core of the application). It should not be defined any new messages.
+
+The exceptions used in the interaction, except if indicated, are subclasses of _pt.utl.ist.po.ui.InvalidOperation_, are thrown by the commands and treated by _pt.utl.ist.po.ui.Menu_. Note that, besides the exceptions described, it is possible to define others. The new exceptions should not replace the ones given in the cases described in here.
 
 ### Cell Addressing
 

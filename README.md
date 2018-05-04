@@ -224,4 +224,4 @@ Use Eclipse IDE. Run the project as a Java application. It will compile and you 
 
 Go to the folder /bin/, open a terminal and run the commands **sh runtests.sh** and **sh runtests-ef.sh**, to run the automatic tests.
 
-The message **Done.** will appear if both automatic tests execute correctly.
+The message **Done.** will appear after each test, if the tests execute correctly.

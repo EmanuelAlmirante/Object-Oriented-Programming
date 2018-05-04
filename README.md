@@ -100,7 +100,7 @@ Initially, the application has no sheet. In this situation, only the options **C
 
 #### File Manipulation
 
-The state of the application can be saved in files, for a posterior recovery (serialization Java: _java.io.Serializable_). In the manipulation of files, the associated exceptions should be treated. The funcionality of each operation is the followin:
+The state of the application can be saved in files, for a posterior recovery (serialization Java: _java.io.Serializable_). In the manipulation of files, the associated exceptions should be treated. The funcionality of each operation is the following:
 
   **Criar (create) -** Allows to create an empty sheet: the dimensions of the new sheet are required, using the messages _linesRequest()_ and _columnsRequest()_. This sheet is not associated to any file (it is anonymous).
   
@@ -185,8 +185,43 @@ Everytime a search is performed and no entity can satisfy the conditions associa
   
 ## Initialization by Text Data File
 
+By omission, when the application starts, there is no active sheet. Besides the options described in **File Manipulation**, it is possible to initialize the application using a text file specified by the property Java **import**. The textual data are only a comfortable way of initialization and are never produced by the application (not even to save the state for future exectutions). When the property is specified, it is created an anonymous active sheet that represents the content of the indicated file.
+
+In the processing of data, it is assumed that there are no badly formed entries (cells not referenced are empty). It is suggested the use of the method _String.split_, to divide a chain of characters in fields.
+
+The first two lines define the number of lines and columns of the spreadsheet. The remaining lines always contain the format _line;column|content_.
+
+In the following example, the content of the initial file (_test.import_), corresponds to the sheet below.
+
+**_test.import_**
+lines=4
+columns=3
+3;3|=ADD(3;1,3;2)
+4;1|
+1;1|5                           
+1;2|49
+2;1|25
+2;2|43
+2;3|=ADD(2;2,5)
+3;1|10
+3;2|=1;1
+1;3|=ADD(2,5)
+4;3|=AVG(1;3:3;3)
+4;2|
+
+|               | **1**         | **2**         | **3**         | 
+| ------------- | ------------- | ------------- | ------------- |
+| **1**         | 5             | 49            | =ADD(2,5)     |     
+| **2**         | 25            | 43            | =ADD(2;2,5)   |        
+| **3**         | 10            | =1;1          | =ADD(3;1,3;2) |
+| **4**         |               |               | =AVG(1;3:3;3) |
+
 ## How To Compile
+
+Use Eclipse IDE. Run the project as a Java application. It will compile and you can use the Eclipse console to perform all the actions described in this project.
 
 ## How To Test
 
-**UNDER CONSTRUCTION**
+Go to the folder /bin/, open a terminal and run the commands **sh runtests.sh** and **sh runtests-ef.sh**, to run the automatic tests.
+
+The message **Done.** will appear if both automatic tests execute correctly.

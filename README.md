@@ -37,6 +37,8 @@ The objective of this project is to develop a spreadsheet, with  The interaction
 
 Any help or recommendation is welcome, so feel free to change the code.
 
+**Note:** Almost all the code is in portuguese. Please use Google Translate, if you need to understand something. For any clarification, feel free to contact me.
+
 ## Structure and Funcionality of the Spreadsheet
 
 ### Addressing: Cells, Intervals, Ranges

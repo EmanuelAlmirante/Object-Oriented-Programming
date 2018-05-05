@@ -33,7 +33,7 @@ This repository hosts the project of the course Object-Oriented Programming.
 
 ## Objectives
 
-The objective of this project is to develop a spreadsheet, with  The interaction with the application is done using the terminal, where it is displayed all the options that are possible of being performed.
+The objective of this project is to develop a spreadsheet, where the interaction with the application is done using the terminal, where it is displayed all the options that are possible of being performed.
 
 Any help or recommendation is welcome, so feel free to change the code.
 
